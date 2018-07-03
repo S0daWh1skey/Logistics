@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>欢迎管理员:{$Think.session.login_admin}</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="__STATIC__/admin/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="__STATIC__/admin/assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="__STATIC__/admin/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/admin/assets/css/admin.css">
+    <script src="__STATIC__/admin/assets/js/jquery.min.js"></script>
+    <script src="__STATIC__/admin/assets/js/app.js"></script>
+</head>
+<body>
+<!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！
+    <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
+
+
+
+
+
+
+</head>
+
+<body>
+{include file="Customer:header" /}
+
+<div class="am-cf admin-main">
+
+    {include file="Customer:sidemenu" /}
+
+    <script type="text/javascript">
+        jQuery(".sideMenu").slide({
+            titCell:"h3", //鼠标触发对象
+            targetCell:"ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+            effect:"slideDown", //targetCell下拉效果
+            delayTime:300 , //效果时间
+            triggerTime:150, //鼠标延迟触发时间（默认150）
+            defaultPlay:true,//默认是否执行效果（默认true）
+            returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
+        });
+    </script>
+
+
+
+
+
+
+
+
+</div>
+
+<div class=" admin-content">
+
+    <div class="daohang">
+
+
+    </div>
+
+
+    <div class="am-popup am-popup-inner" id="my-popup">
+
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title">添加商品一级分类</h4>
+            <span data-am-modal-close
+                  class="am-close">&times;</span>
+        </div>
+
+        <div class="am-popup-bd">
+
+
+            <form class="am-form tjlanmu">
+
+
+                <div class="am-form-group">
+                    <div class="zuo">栏目名称：</div>
+                    <div class="you">
+                        <input type="email" class="am-input-sm" id="doc-ipt-email-1" placeholder="请输入标题">
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <div class="zuo">栏目关键词：</div>
+                    <div class="you">
+                        <input type="password" class="am-input-sm" id="doc-ipt-pwd-1" placeholder="请输入关键词">
+                    </div>
+                </div>
+                <div class="am-form-group am-cf">
+                    <div class="zuo">栏目描述：</div>
+                    <div class="you">
+                        <textarea class="" rows="2" id="doc-ta-1"></textarea>
+                    </div>
+                </div>
+                <div class="am-form-group am-cf">
+                    <div class="zuo">栏目图片：</div>
+                    <div class="you" style="height: 45px;">
+                        <input type="file" id="doc-ipt-file-1">
+                        <p class="am-form-help">请选择要上传的文件...</p>
+                    </div>
+                </div>
+                <div class="am-form-group am-cf">
+                    <div class="zuo">简介：</div>
+                    <div class="you">
+                        <textarea class="" rows="2" id="doc-ta-1"></textarea>
+                    </div>
+                </div>
+                <div class="am-form-group am-cf">
+                    <div class="zuo">状态：</div>
+                    <div class="you" style="margin-top: 3px;">
+                        <label class="am-checkbox-inline">
+                            <input type="checkbox" value="option1">
+                            显示 </label>
+                        <label class="am-checkbox-inline">
+                            <input type="checkbox" value="option2">
+                            隐藏 </label>
+
+                    </div>
+                </div>
+                <div class="am-form-group am-cf">
+                    <div class="you">
+                        <p>
+                            <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                        </p>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <!--医生详情模态框-->
+    <div class="am-popup am-popup-inner" id="my-detail" >
+
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title"></h4>
+            <span data-am-modal-close
+                  class="am-close">&times;</span>
+        </div>
+
+        <div class="am-popup-bd">
+            <input type="hidden" name="stuffId" >
+            <div class="am-form-group">
+
+                <div class="zuo">医生姓名：<lable id="Detail_DName"></lable></div>
+                <div class="zuo">医生电话：<lable id="Detail_PName"></lable></div>
+                <div class="zuo">所属科室：<lable id="Detail_DDept"></lable></div>
+                <div class="zuo">医院名称：<lable id="Detail_HName"></lable></div>
+                <div class="zuo">物流人员：<lable id="Detail_Lname"></lable></div>
+                <div class="zuo">物流电话：<lable id="Detail_LPhon"></lable></div>
+                <div class="zuo">运输方式：<lable id="Detail_Lways"></lable></div>
+                <div class="zuo">所属公司：<lable id="Detail_CName"></lable></div>
+                <div class="zuo">取件时间：<lable id="Detail_LTime"></lable></div>
+                <div class="zuo">备   注：<lable id="Detail_LNote"></lable></div>
+                <div class="zuo">邮   箱：<lable id="Detail_Email"></lable></div>
+                <div class="zuo">城   市：<lable id="Detail_LCity"></lable></div>
+                <div class="zuo">大   区：<lable id="Detail_LArea"></lable></div>
+                <div class="zuo">是否合作：<lable id="Detail_isCop"></lable></div>
+
+                <!--<div class="zuo">员工邮箱：</div>-->
+                <!--<div class="you">-->
+                <!--</div>-->
+                <!--<div class="zuo">所属部门：</div>-->
+                <!--<div class="you">-->
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!--修改医生模态框-->
+    <div class="am-popup am-popup-inner" id="my-popups" >
+
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title"></h4>
+            <span data-am-modal-close
+                  class="am-close">&times;</span>
+        </div>
+
+        <div class="am-popup-bd">
+            <input type="hidden" name="stuffId" >
+            <div class="am-form-group">
+                <form  method="POST" action="{:url('update')}">
+                    <input type="hidden" name="DId" id="Edt_id">
+                    <div class="zuo">医生姓名：<lable><input type="text" name="DName" id="Edt_name"></lable></div>
+                    <div class="zuo">医生电话：<lable><input type="text" name="DPhone" id="Edt_phone"></lable></div>
+                    <div class="zuo">所属科室：<lable><input type="text" name="DDept" id="Edt_Dep"></lable></div>
+                    <div class="zuo">医院名称：<lable><input type="text" name="Hname" id="Edt_hospital"></lable></div>
+                    <div class="zuo">物流人员：<lable><input type="text" name="LogName" id="Edt_Logname"></lable></div>
+                    <div class="zuo">物流电话：<lable><input type="text" name="LogPhone" id="Edt_Logphone"></lable></div>
+                    <div class="zuo">运输方式：<lable><input type="text" name="LogWay" id="Edt_Logway"></lable></div>
+                    <div class="zuo">所属公司：<lable><input type="text" name="LogCompany" id="Edt_Company"></lable></div>
+                    <div class="zuo">取件时间：<lable><input type="text" name="Gettime" id="Edt_Gettime"></lable></div>
+                    <div class="zuo">备   注：<lable><input type="text" name="Note" id="Edt_Note"></lable></div>
+                    <div class="zuo">邮   箱：<lable><input type="text" name="Mail" id="Edt_Mail"></lable></div>
+                    <div class="zuo">城   市：<lable><input type="text" name="City" id="Edt_City"></lable></div>
+                    <div class="zuo">大   区：<lable><input type="text" name="Area" id="Edt_Area"></lable></div>
+                    <div class="zuo">是否合作：<lable><input type="text" name="IsCoop" id="Edt_isCoop"></lable></div>
+                    <div class="am-form-group">
+                        <div class="you">
+                            <p>
+                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+
+                <!--<div class="zuo">员工邮箱：</div>-->
+                <!--<div class="you">-->
+                <!--</div>-->
+                <!--<div class="zuo">所属部门：</div>-->
+                <!--<div class="you">-->
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!--添加医生模态框-->
+    <div class="am-popup am-popup-inner" id="my-add" >
+
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title"></h4>
+            <span data-am-modal-close
+                  class="am-close">&times;</span>
+        </div>
+
+        <div class="am-popup-bd">
+            <input type="hidden" name="stuffId" >
+            <div class="am-form-group">
+                <form  method="POST" action="{:url('add')}">
+                    <div class="zuo">医生姓名：<lable><input type="text" name="DName"></lable></div>
+                    <div class="zuo">医生电话：<lable><input type="text" name="DPhone"></lable></div>
+                    <div class="zuo">所属科室：<lable><input type="text" name="DDept"></lable></div>
+                    <div class="zuo">医院名称：<lable><input type="text" name="Hname"></lable></div>
+                    <div class="zuo">物流人员：<lable><input type="text" name="LogName"></lable></div>
+                    <div class="zuo">物流电话：<lable><input type="text" name="LogPhone"></lable></div>
+                    <div class="zuo">运输方式：<lable><input type="text" name="LogWay"></lable></div>
+                    <div class="zuo">所属公司：<lable><input type="text" name="LogCompany"></lable></div>
+                    <div class="zuo">取件时间：<lable><input type="text" name="Gettime"></lable></div>
+                    <div class="zuo">备   注：<lable><input type="text" name="Note"></lable></div>
+                    <div class="zuo">邮   箱：<lable><input type="text" name="Mail"></lable></div>
+                    <div class="zuo">城   市：<lable><input type="text" name="City"></lable></div>
+                    <div class="zuo">大   区：<lable><input type="text" name="Area"></lable></div>
+                    <div class="zuo">是否合作：<lable><input type="text" name="IsCoop"></lable></div>
+                    <div class="am-form-group">
+                        <div class="you">
+                            <p>
+                                <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+
+                <!--<div class="zuo">员工邮箱：</div>-->
+                <!--<div class="you">-->
+                <!--</div>-->
+                <!--<div class="zuo">所属部门：</div>-->
+                <!--<div class="you">-->
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--个人中心模态框-->
+    <div class="am-popup am-popup-inner" id="my-Center" >
+
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title"></h4>
+            <span data-am-modal-close
+                  class="am-close">&times;</span>
+        </div>
+
+        <div class="am-popup-bd">
+            <input type="hidden" name="stuffId" >
+            <div class="am-form-group">
+
+                <div class="zuo">用户名：</div>
+                <div class="zuo">
+                    &nbsp;
+                </div>
+                <div class="you">
+                    <input type="text" class="am-input-sm" name="stuffName" id="Edt_name" placeholder="请修改用户名">
+                </div>
+                <div class="zuo">
+                    &nbsp;
+                </div>
+                <div class="zuo">邮箱：</div>
+                <div class="zuo">
+                    &nbsp;
+                </div>
+                <div class="you">
+                    <input type="email" class="am-input-sm" name="stuffEmail" id="Edt_email" placeholder="请修改邮箱">
+                </div>
+                <div class="zuo">
+                    &nbsp;
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!---->
+
+    <!--批量导入数据模态框-->
+    <div class="am-popup am-popup-inner" id="batch-import" >
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title"></h4>
+            <span data-am-modal-close
+                  class="am-close">&times;</span>
+        </div>
+        <div class="am-popup-bd">
+            <form class="am-form" method="POST" action="{:url('batchImport')}" enctype="multipart/form-data">
+                <input type="hidden" name="stuffId" >
+                <div class="am-form-group">
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="zuo">请选择要导入的Excel文件：</div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="you">
+                        <input type="file" id="InputFile" name="excel" required>
+                    </div>
+                </div>
+                <div class="zuo">
+                    &nbsp;
+                </div>
+                <div class="am-form-group">
+                    <div class="you">
+                        <p>
+                            <button type="submit" class="am-btn am-btn-success am-radius">提交</button>
+                        </p>
+                    </div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                    <div class="zuo">
+                        &nbsp;
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+<!--修改医生模态框-->
+
+
+
+
+
+
+
+<div class="admin-biaogelist">
+
+    <div class="listbiaoti am-cf">
+        <ul class="am-icon-users"> 员工管理</ul>
+
+        <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">员工列表</a></dl>
+
+        <dl>
+            <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"
+                    data-am-modal="{target: '#my-add'}">
+                手动添加医生信息</button>
+            <button type="button" class="am-btn am-btn-danger am-round am-btn-xs am-icon-plus"
+                    data-am-modal="{target: '#batch-import'}">
+                批量导入新医生信息</button>
+            <a class="am-btn am-btn-danger am-round am-btn-xs am-icon-refresh" href="{:url('index')}">刷新</a>
+            <a class="am-btn am-btn-danger am-round am-btn-xs am-icon-eject" href="{:url('Db2Excel')}">导出医生数据为Excel</a>
+        </dl>
+
+        <!--这里打开的是新页面-->
+
+
+
+
+    </div>
+
+    <form method="post" action="{:url('index')}">
+
+        <input class="search_text" type="text" name="search" placeholder="请输入搜索内容"/>
+        <button type="button" class="am-btn am-btn-xs am-btn-default am-xiao">
+            <input style="background: white;border: 0px" class="am-icon-search" type="submit"></button>
+    </form>
+
+
+    <form  method="POST"  class="am-form" action="{:url('add')}">
+        <div class="zuo">序 号：<lable><input  placeholder="序号" style="width: 50%"type="text" name="lnumber" ></lable></div>
+        <div class="zuo">日 期：<lable><input placeholder="日期" type="date"style="width: 50%" name="date" ></lable></div>
+        <div class="zuo">接收日期：<lable><input placeholder="接收日期" type="date" style="width: 50%"name="receivedate" ></lable></div>
+        <div class="zuo">预约工单内容：<lable><input  placeholder="预约工单内容" type="text" style="width: 50%"name="content" ></lable></div>
+        <div class="am-form-group">
+            <div class="you">
+                <p>
+                    <button type="submit" class="am-btn am-btn-success am-radius" style="margin-left: 30%;margin-top: 10px">添加</button>
+                </p>
+            </div>
+        </div>
+
+        <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+            <thead>
+            <tr class="am-success">
+                <th class="table-check"><input type="checkbox" /></th>
+                <th class="table-title">医生ID</th>
+                <th class="table-title">医生名称</th>
+                <th class="table-author am-hide-sm-only">医生电话</th>
+                <th class="table-author am-hide-sm-only">所属科室</th>
+                <th class="table-author am-hide-sm-only">医院名称</th>
+                <th class="table-author am-hide-sm-only">物流人员</th>
+                <th class="table-author am-hide-sm-only">物流电话</th>
+                <th class="table-author am-hide-sm-only">运输方式</th>
+                <th class="table-author am-hide-sm-only">所属公司</th>
+                <th class="table-author am-hide-sm-only">取件时间</th>
+                <th class="table-author am-hide-sm-only">是否合作</th>
+                <!--<th class="table-date am-hide-sm-only">最近消费</th>-->
+                <th width="130px" class="table-set">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="dlist" id="vo"}
+            <tr>
+                <td><input type="checkbox" name="Dids[]" value="{$vo.Did}"/></td>
+                <td>{$vo.Did}</td>
+                <td>{$vo.DName}</td>
+                <td>{$vo.DPhone}</td>
+                <td>{$vo.DDpartment}</td>
+                <td>{$vo.HName}</td>
+                <td>{$vo.logisName}</td>
+                <td>{$vo.logisPhone}</td>
+                <td>{$vo.logisWay}</td>
+                <td>{$vo.logisCompany}</td>
+                <td>{$vo.GetTime}</td>
+                <td>{$vo.IsCooperation}</td>
+                <td>
+                    <div class="am-btn-toolbar">
+                        <div class="am-btn-group am-btn-group-xs">
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-text-success am-round"
+                                    data-am-modal="{target: '#my-detail'}" onclick="jsedit({$vo.Did})"><span class="am-icon-search" title="查看订单详情"></span> </button>
+
+
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary am-round"
+                                    data-am-modal="{target: '#my-popups'}" onclick="jsedit({$vo.Did})">
+                                <span class="am-icon-pencil-square-o"></span></button>
+
+
+
+                            <li class="am-btn am-btn-default am-btn-xs am-text-danger am-round">
+                                <!--<span class="am-icon-trash-o" ><a href="{:url('delete',['id'=>$vo.Did])}"></span>-->
+                                <!--<a href="{:url('delete',['id'=>$vo.Did])}"><i class="am-icon-trash-o"></i></a></li>-->
+                                <a href="javascript:if(confirm('确实要删除该内容吗?')){location.href='{:url('delete',['id'=>$vo.Did])}'}"><i class="am-icon-trash-o"></i></a>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+            {/volist}
+
+            </tbody>
+        </table>
+    </form>
+
+
+
+
+
+
+
+        <div class="am-btn-group am-btn-group-xs">
+        </div>
+
+        <!--<ul class="am-pagination am-fr">-->
+        <!--<li class="am-disabled"><a href="#">«</a></li>-->
+        <!--<li class="am-active"><a href="#">1</a></li>-->
+        <!--<li><a href="#">2</a></li>-->
+        <!--<li><a href="#">3</a></li>-->
+        <!--<li><a href="#">4</a></li>-->
+        <!--<li><a href="#">5</a></li>-->
+        <!--<li><a href="#">»</a></li>-->
+        <!--</ul>-->
+
+
+        <hr />
+        <p></p>
+
+
+    {include file="Manager:footer" /}
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__STATIC__/admin/assets/js/polyfill/rem.min.js"></script>
+<script src="__STATIC__/admin/assets/js/polyfill/respond.min.js"></script>
+<script src="__STATIC__/admin/assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__STATIC__/admin/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+<script>
+    function jsedit(DID) {
+        //根据StuffID到数据库里把当前行的数据全部查到，显示到模态框的表单控件中
+
+        //alert(DID);
+        //alert("aaaa");
+        $.getJSON("{:url('detail')}",{"DoctorID":DID},
+            function(json) {
+                // alert(json.DName);
+                $("#Edt_name").val(json.DName);
+                $("#Edt_phone").val(json.DPhone);
+                $("#Edt_Dep").val(json.DDpartment);
+                $("#Edt_hospital").val(json.HName);
+                $("#Edt_Logname").val(json.logisName);
+                $("#Edt_Logphone").val(json.logisPhone);
+                $("#Edt_Logway").val(json.logisWay);
+                $("#Edt_Company").val(json.logisCompany);
+                $("#Edt_Gettime").val(json.GetTime);
+                $("#Edt_Note").val(json.Note);
+                $("#Edt_Mail").val(json.Mail);
+                $("#Edt_City").val(json.City);
+                $("#Edt_Area").val(json.Area);
+                $("#Edt_isCoop").val(json.IsCooperation);
+                $("#Edt_id").val(json.Did);
+                document.getElementById("Detail_DName").innerText = (json.DName);
+                document.getElementById("Detail_PName").innerText = (json.DPhone);
+                document.getElementById("Detail_DDept").innerText = (json.DDpartment);
+                document.getElementById("Detail_HName").innerText = (json.HName);
+                document.getElementById("Detail_Lname").innerText = (json.logisName);
+                document.getElementById("Detail_LPhon").innerText = (json.logisPhone);
+                document.getElementById("Detail_Lways").innerText = (json.logisWay);
+                document.getElementById("Detail_CName").innerText = (json.logisCompany);
+                if(json.GetTime){
+                    document.getElementById("Detail_LTime").innerText = (json.GetTime);
+                }
+                else{
+                    document.getElementById("Detail_LTime").innerText = "待定";
+                }
+                if(json.Note) {
+                    document.getElementById("Detail_LNote").innerText = (json.Note);
+                }
+                else{
+                    document.getElementById("Detail_LNote").innerText = "暂无";
+                }
+                document.getElementById("Detail_Email").innerText = (json.Mail);
+                document.getElementById("Detail_LCity").innerText = (json.City);
+                document.getElementById("Detail_LArea").innerText = (json.Area);
+                if(json.IsCooperation){
+                    document.getElementById("Detail_isCop").innerText = (json.IsCooperation);
+                }
+                else{
+                    document.getElementById("Detail_isCop").innerText ="未评估";
+                }
+
+
+            });
+
+    }
+</script>
+
+
+</body>
+</html>
